@@ -1,0 +1,11 @@
+.movies-card {
+    border: 1px solid wheat;
+    text-align: start;
+}
+.movie-title {
+    display: flex;
+    justify-content: start;
+}
+h2 {
+    font-size: 27px !important;
+}
