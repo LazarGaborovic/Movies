@@ -7,7 +7,7 @@ const Layout = () => {
     <div>
       <Navigation />
       <Outlet />
-      <p style={{ color: "#fff" }}>Footer</p>
+      
     </div>
   );
 };

@@ -3,6 +3,7 @@ import MoviesBox from "./MoviesBox";
 import PaginationComponent from "react-reactstrap-pagination";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 import "./Movies.css";
+import Loading from "./Loading";
 
 const Movies = () => {
   const [page, setPage] = useState(1);
@@ -22,10 +23,6 @@ const Movies = () => {
         setLoading(false);
       });
   }, [page]);
-
-  const handleSelected = (selectedPage) => {
-    setPage(selectedPage);
-  };
 
   const handleClick = (e, index) => {
     e.preventDefault();
@@ -47,14 +44,14 @@ const Movies = () => {
   return (
     <div className="container ">
       <div className="row">
-        {loading ? (
-          <h1 style={{ color: "#fff" }}>Loading...</h1>
+        {loading ? (  <Loading />
+          
         ) : (
           movies.map((movieReq) => (
             <MoviesBox key={movieReq.id} {...movieReq} />
           ))
         )}
-        <div className="pagination-card col-12">
+        <div className="pagination-card col-sm">
           {/* <PaginationComponent
             totalItems={50}
             pageSize={5}
@@ -69,7 +66,7 @@ const Movies = () => {
                 href="#"
               />
             </PaginationItem>
-            {pageNumbers.slice(0, 20)}
+            {pageNumbers.slice(0, 10)}
 
             <PaginationItem disabled={page >= totalMovies - 1}>
               <PaginationLink
